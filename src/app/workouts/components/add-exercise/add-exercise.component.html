@@ -1,0 +1,29 @@
+<div class="app-workout-form">
+  <h2>{{exercise.name | uppercase}}</h2>
+  <form class="workout-form" fxLayout="row wrap" fxLayoutGap="1em grid">
+    <mat-form-field fxFlex.gt-xs="50%" fxFlex.lt-sm="100%">
+      <mat-label>id</mat-label>
+      <input matInput [(ngModel)]="exercise.id" type="text" name="id" disabled>
+    </mat-form-field>
+    <mat-form-field fxFlex.gt-xs="50%" fxFlex.lt-sm="100%">
+      <mat-label>name</mat-label>
+      <input matInput [(ngModel)]="exercise.name" type="text" name="name">
+    </mat-form-field>
+    <mat-form-field fxFlex.gt-xs="50%" fxFlex.lt-sm="100%">
+      <mat-label>focus</mat-label>
+      <mat-select [(ngModel)]="exercise.focus" name="focus">
+        <mat-option *ngFor="let focus of focuses | iterNumericInterface" [value]="focus.value">
+          {{focus.key}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex.gt-xs="50%" fxFlex.lt-sm="100%">
+      <mat-label>measure</mat-label>
+      <mat-select [(ngModel)]="exercise.measures" name="measures" multiple>
+        <mat-option *ngFor="let measure of measures | iterNumericInterface" [value]="measure.value">
+          {{measure.key}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>

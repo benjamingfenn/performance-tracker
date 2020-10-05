@@ -1,0 +1,30 @@
+<div class="app-workout-form">
+  <h2>{{workout.name | uppercase}}</h2>
+  <form class="workout-form" fxLayout="row wrap" fxLayoutGap="1em grid">
+    <mat-form-field fxFlex.gt-xs="50%" fxFlex.lt-sm="100%">
+      <mat-label>id</mat-label>
+      <input matInput [(ngModel)]="workout.id" type="text" name="id" disabled>
+    </mat-form-field>
+    <mat-form-field fxFlex.gt-xs="50%" fxFlex.lt-sm="100%">
+      <mat-label>name</mat-label>
+      <input matInput [(ngModel)]="workout.name" type="text" name="name">
+    </mat-form-field>
+    <mat-form-field fxFlex.gt-xs="50%" fxFlex.lt-sm="100%">
+      <mat-label>focus</mat-label>
+      <mat-select [(ngModel)]="workout.focus" name="focus">
+        <mat-option *ngFor="let focus of focuses | iterNumericInterface" [value]="focus.value">
+          {{focus.key}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <span fxFlex="100%">
+      <mat-label>components</mat-label>
+      <button (click)="openComponentFormDialog()" mat-button color="primary"><mat-icon>add</mat-icon></button>
+    </span>
+    <ul class="components-list" fxFlex="100%">
+      <li *ngFor="let component of workout.components">
+        {{ component.weight }}
+      </li>
+    </ul>
+  </form>
+</div>

@@ -1,0 +1,34 @@
+<form class="component-form" fxLayout="row wrap" fxLayoutGap="1em grid">
+  <mat-form-field fxFlex.gt-sm="50%" fxFlex.lt-md="100%">
+    <mat-label>id</mat-label>
+    <input matInput [(ngModel)]="component.id" type="text" name="id" disabled>
+  </mat-form-field>
+  <mat-form-field fxFlex.gt-sm="50%" fxFlex.lt-md="100%">
+    <mat-label>weight</mat-label>
+    <input matInput [(ngModel)]="component.weight" type="number" name="weight">
+  </mat-form-field>
+  <mat-form-field fxFlex.gt-sm="50%" fxFlex.lt-md="100%">
+    <mat-label>wieght unit</mat-label>
+    <mat-select [(ngModel)]="component.weightUnit" name="wieght-unit">
+      <mat-option *ngFor="let weightUnit of weightUnits | iterNumericInterface" [value]="weightUnit.value">
+        {{weightUnit.key}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field fxFlex.gt-sm="50%" fxFlex.lt-md="100%">
+    <mat-label>reps</mat-label>
+    <input matInput [(ngModel)]="component.reps" type="number" name="reps">
+  </mat-form-field>
+  <mat-form-field fxFlex.gt-sm="50%" fxFlex.lt-md="100%">
+    <mat-label>distance unit</mat-label>
+    <mat-select [(ngModel)]="component.distanceUnit" name="distance-unit">
+      <mat-option *ngFor="let distanceUnit of distanceUnits | iterNumericInterface" [value]="distanceUnit.value">
+        {{distanceUnit.key}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field fxFlex.gt-sm="50%" fxFlex.lt-md="100%">
+    <mat-label>distance</mat-label>
+    <input matInput [(ngModel)]="component.distance" type="number" name="distance">
+  </mat-form-field>
+</form>
